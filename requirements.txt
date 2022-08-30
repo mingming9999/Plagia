@@ -4,5 +4,5 @@ bs4
 requests
 pandas
 google
-difflib
+cdifflib
 scikit-learn
