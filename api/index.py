@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    f = open("demofile2.txt", "a")
+    f = open("demofile2.txt", "w")
     f.write("Now the file has more content!")
     f.close()
 
