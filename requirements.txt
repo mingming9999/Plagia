@@ -1,7 +1,1 @@
 Flask
-numpy
-bs4
-requests
-pandas
-google
-scikit-learn
