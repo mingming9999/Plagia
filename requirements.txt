@@ -1,4 +1,1 @@
 Flask
-numpy
-bs4
-scikit-learn
