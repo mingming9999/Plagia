@@ -2,7 +2,6 @@ from flask import Flask
 import math
 import re
 import requests
-
 from collections import Counter
 from googlesearch import search
 from flask import request
@@ -14,8 +13,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     query = request.args.get('data', default='*', type=str)
-    query = replace("-"," ")
+    print(query)
     find = hanap(query)
+    print(find)
     out_data = []
     for data in find:
         if "0.txt" in data:
@@ -26,7 +26,7 @@ def index():
 def hanap(query):
     results = set()
     # to search
-    for j in search(query, tld="co.in", num=6, stop=6, pause=1):
+    for j in search(query, tld="co.in", num=6, stop=6, pause=3):
         try:
             response = requests.get(j)
             print(response.status_code)
@@ -57,8 +57,9 @@ def hanap(query):
             name = j.replace(":", "@")
             name = name.replace("/", "AAAA")
             score = "0.txt", name, cosine, common
+
             results.add(score)
-            
+
         except:
             print("404")
     return results
@@ -103,3 +104,5 @@ def longest_common_substring(s1, s2):
 
     return s1[x_longest - longest:x_longest]
 
+
+app.run(host='0.0.0.0', port=80)
