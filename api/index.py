@@ -1,6 +1,8 @@
 from flask import Flask
 import math
 import re
+import requests
+
 from collections import Counter
 from googlesearch import search
 from flask import request
@@ -11,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    query = request.args.get('data', default='*', type=str)
+    query = request.args.get('data', default='cats', type=str)
     print(query)
     find = hanap(query)
     out_data = []
