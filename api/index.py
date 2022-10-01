@@ -103,6 +103,3 @@ def longest_common_substring(s1, s2):
 
     return s1[x_longest - longest:x_longest]
 
-
-
-app.run(port=80)
