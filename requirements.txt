@@ -2,3 +2,6 @@ Flask
 beautifulsoup4
 google
 requests
+python-math
+regex
+Counter
