@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    query = request.args.get('data', default='cats', type=str)
+    query = request.args.get('data', default='*', type=str)
     print(query)
     find = hanap(query)
     out_data = []
