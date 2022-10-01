@@ -105,4 +105,4 @@ def longest_common_substring(s1, s2):
 
 
 
-app.run(host='https://plagia-mingming9999.vercel.app/', port=80)
+app.run(port=80)
