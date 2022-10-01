@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     query = request.args.get('data', default='*', type=str)
-    print(query)
+    query = replace("-"," ")
     find = hanap(query)
     out_data = []
     for data in find:
