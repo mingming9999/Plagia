@@ -48,8 +48,8 @@ def hanap(query):
                       for phrase in line.split("  "))
             # drop blank lines
             text = ' '.join(chunk for chunk in chunks if chunk)
-            q = re.sub('[^A-Za-z0-9\,\-\.\ ]+', ' ', query)
-            t = re.sub('[^A-Za-z0-9\,\-\.\ ]+', ' ', text)
+            q = re.sub('[^A-Za-z0-9\,\-\.\ ]+', '', query)
+            t = re.sub('[^A-Za-z0-9\,\-\.\ ]+', '', text)
             vector1 = text_to_vector(q.lower())
             vector2 = text_to_vector(t.lower())
             common = longest_common_substring(q.lower(), t.lower())
