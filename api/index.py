@@ -10,9 +10,9 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 
-@app.route('/')
-def index():
-    query = request.args.get('data', default='*', type=str)
+@app.route('/sample', methods=["POST"])
+def query_example():
+    query = request.form["test"]
     print(query)
     find = hanap(query)
     print(find)
@@ -21,6 +21,12 @@ def index():
         if "0.txt" in data:
             out_data.append(data)
     return out_data
+
+
+@app.route('/')
+def index():
+
+    return "Pusa"
 
 
 def hanap(query):
@@ -56,7 +62,8 @@ def hanap(query):
             cosine = get_cosine(vector1, vector2)
             name = j.replace(":", "@")
             name = name.replace("/", "AAAA")
-            score = "0.txt", name, cosine, common
+            common = common.replace(",", " ")
+            score = "0.txt", name, cosine, common + "(info)"
 
             results.add(score)
 
@@ -104,3 +111,5 @@ def longest_common_substring(s1, s2):
 
     return s1[x_longest - longest:x_longest]
 
+
+app.run(host='0.0.0.0', port=80)
