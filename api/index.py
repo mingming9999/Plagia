@@ -54,15 +54,17 @@ def hanap(query):
                       for phrase in line.split("  "))
             # drop blank lines
             text = ' '.join(chunk for chunk in chunks if chunk)
-            q = re.sub('[^A-Za-z0-9\,\-\.\ ]+', ' ', query)
-            t = re.sub('[^A-Za-z0-9\,\-\.\ ]+', ' ', text)
+            q = re.sub('[^A-Za-z0-9\,\-\.\ \. ]+', ' ', query)
+            t = re.sub('[^A-Za-z0-9\,\-\.\ \. ]+', ' ', text)
+
             vector1 = text_to_vector(q.lower())
             vector2 = text_to_vector(t.lower())
             common = longest_common_substring(q.lower(), t.lower())
+            print(common)
             cosine = get_cosine(vector1, vector2)
             name = j.replace(":", "@")
             name = name.replace("/", "AAAA")
-            common = common.replace(",", " ")
+            common = re.sub('[^A-Za-z0-9\ ]', ' ', common)
             score = "0.txt", name, cosine, common + "(info)"
 
             results.add(score)
@@ -110,3 +112,6 @@ def longest_common_substring(s1, s2):
                 m[x][y] = 0
 
     return s1[x_longest - longest:x_longest]
+
+
+
