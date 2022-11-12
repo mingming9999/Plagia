@@ -5,3 +5,4 @@ requests
 python-math
 regex
 Counter
+requests-html
