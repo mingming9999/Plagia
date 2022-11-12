@@ -3,7 +3,7 @@
         {
  "source": "/(.*)", 
 "destination": "/api/index",
-"maxDuration": 500
+"maxDuration": 60
 }
     ]
 }
